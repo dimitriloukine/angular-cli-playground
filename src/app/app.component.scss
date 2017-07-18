@@ -1,34 +1,26 @@
-.heroes{
-	list-style: none;
-	line-height: 24px;
-	padding:10px;
-	li{
-		margin-bottom: 2px;
+.table-heroes{
+	tbody tr{
+		&:nth-child(even){
+			background: #eee;
+		}
+		&:nth-child(odd){
+			background: #ddd;
+		}
 		&:hover{
-			.badge{
-				background: lighten(darkred, 10%);
+			background: #f0f0f0;
+		}
+		td{
+			padding: 2px 16px;
+			&:nth-child(1){
+				
 			}
+			&:nth-child(2){
+				font-weight: bold;
+			}
+			&:nth-child(3){
 
-		}
-		&.active{
-			color: darkred;
-			.badge{
-				background: white;
-				color: darkred;
-				border:1px solid darkred;
 			}
-		}
-	}
-	.badge{
-		background: darkred;
-		border:1px solid darkred;
-		padding:2px;
-		text-align: center;
-		color:white;
-		font-weight: bold;
-		border-radius: 50%;
-		margin-right: 4px;
-		width:24px;
-		display: inline-block;
+		}		
 	}
 }
+

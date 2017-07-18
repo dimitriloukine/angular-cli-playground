@@ -2,16 +2,27 @@
 <h1>
 	Welcome to app !
 </h1>
-
-<ul class="heroes">
-	<li
-		*ngFor="let hero of heroes"
-		[class.active]="hero === selectedHero"
-		(click)=" hero === selectedHero ? onSelect(null) : onSelect(hero)"
-	>
-		<span class="badge">{{hero.id}}</span> {{hero.name}}
-	</li>
-</ul>
+<table class="table table-heroes">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Role</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr
+			*ngFor="let hero of heroes"
+			[class.active]="hero === selectedHero"
+			(click)=" hero === selectedHero ? onSelect(null) : onSelect(hero)"
+		>
+			<td>{{ hero.id }}</td>
+			<td>{{ hero.name }}</td>
+			<td>{{ hero.role.name }}</td>
+		</tr>
+	</tbody>
+	
+</table>
 
 <div *ngIf="selectedHero">
 	<h2>{{selectedHero.greet() }} </h2>
@@ -24,13 +35,13 @@
 		<input [(ngModel)]="selectedHero.name" placeholder="name"/>
 	</div>
 	<br>
-	<button (click)="selectedHero.google()">Look me up on google</button>
 	<button (click)="deleteHero(selectedHero); onSelect(null)">Delete a this hero</button>
 	<br>
 	<pre>{{selectedHero | json}}</pre>
 </div>
 
 <form
+	*ngIf="selectedHero === null"
 	name="newHeroForm"
 	(ngSubmit)="createHero(newHero)"
 >
@@ -49,6 +60,4 @@
 	</div>
 	<br>
 	<button type="submit" >Create a new hero</button>
-	<br>
-	<pre>{{selectedHero | json}}</pre>
 </form>
