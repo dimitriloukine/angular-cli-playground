@@ -1,20 +1,20 @@
 
 <h1>
-	Welcome to {{ title }} !
+	Welcome to app !
 </h1>
 
 <ul class="heroes">
 	<li
 		*ngFor="let hero of heroes"
 		[class.active]="hero === selectedHero"
-		(click)="onSelect(hero)"
+		(click)=" hero === selectedHero ? onSelect(null) : onSelect(hero)"
 	>
 		<span class="badge">{{hero.id}}</span> {{hero.name}}
 	</li>
 </ul>
 
 <div *ngIf="selectedHero">
-	<h2>{{selectedHero.name}} details!</h2>
+	<h2>{{selectedHero.greet() }} </h2>
 	<div>
 		<label>id: </label>{{selectedHero.id}}
 	</div>
@@ -23,4 +23,32 @@
 		<label>name: </label>
 		<input [(ngModel)]="selectedHero.name" placeholder="name"/>
 	</div>
+	<br>
+	<button (click)="selectedHero.google()">Look me up on google</button>
+	<button (click)="deleteHero(selectedHero); onSelect(null)">Delete a this hero</button>
+	<br>
+	<pre>{{selectedHero | json}}</pre>
 </div>
+
+<form
+	name="newHeroForm"
+	(ngSubmit)="createHero(newHero)"
+>
+	<h2>Create a new hero</h2>
+	<div>
+		<label>id: </label>{{ findAvailableId() }}
+	</div>
+	<div>
+		<label>name: </label>
+		<input
+			[(ngModel)]="newHero.name"
+			placeholder="name"
+			name="newHeroName"
+			required
+		/>
+	</div>
+	<br>
+	<button type="submit" >Create a new hero</button>
+	<br>
+	<pre>{{selectedHero | json}}</pre>
+</form>
