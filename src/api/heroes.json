@@ -1,0 +1,29 @@
+{
+	"heroes": [
+		{"id":1, "name": "Doomfist", "role_id": 1},
+		{"id":2, "name": "Genji", "role_id": 1},
+		{"id":3, "name": "McCree", "role_id": 1},
+		{"id":4, "name": "Pharah", "role_id": 1},
+		{"id":5, "name": "Reaper", "role_id": 1},
+		{"id":6, "name": "Soldier: 76", "role_id": 1},
+		{"id":7, "name": "Sombra", "role_id": 1},
+		{"id":8, "name": "Tracer", "role_id": 1},
+		{"id":9, "name": "Bastion", "role_id": 2},
+		{"id":10, "name": "Hanzo", "role_id": 2},
+		{"id":11, "name": "Junkrat", "role_id": 2},
+		{"id":12, "name": "Mei", "role_id": 2},
+		{"id":13, "name": "Torbjörn", "role_id": 2},
+		{"id":14, "name": "Widowmaker", "role_id": 2},
+		{"id":15, "name": "D.Va", "role_id": 3},
+		{"id":16, "name": "Orisa", "role_id": 3},
+		{"id":17, "name": "Reinhardt", "role_id": 3},
+		{"id":18, "name": "Roadhog", "role_id": 3},
+		{"id":19, "name": "Winston", "role_id": 3},
+		{"id":20, "name": "Zarya", "role_id": 3},
+		{"id":21, "name": "Ana", "role_id": 4},
+		{"id":22, "name": "Lúcio", "role_id": 4},
+		{"id":23, "name": "Mercy", "role_id": 4},
+		{"id":24, "name": "Symmetra", "role_id": 4},
+		{"id":25, "name": "Zenyatta", "role_id": 4}
+	]
+}
