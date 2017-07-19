@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 
+import { Hero } from './hero';
+
 @Injectable()
-export class HeroesService {
-
-  constructor() { }
-
+export class HeroesService {  
+  constructor(){}
 }
