@@ -1,68 +1,69 @@
-<div>
-		
-	<p>
-	  heroes works!
-	</p>
-	<table class="table table-heroes">
-		<thead>
-			<tr>
-				<th>Id</th>
-				<th>Name</th>
-				<th>Role</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr
-				*ngFor="let hero of heroes"
-				[class.active]="hero === selectedHero"
-				(click)=" hero === selectedHero ? onSelect(null) : onSelect(hero)"
-			>
-				<td>{{ hero.id }}</td>
-				<td>{{ hero.name }}</td>
-				<td>{{ hero.role.name }}</td>
-			</tr>
-		</tbody>
-		
-	</table>
+<div class="row">
 
-	<div *ngIf="selectedHero">
-		<h2>{{selectedHero.greet() }} </h2>
-		<div>
-			<label>id: </label>{{selectedHero.id}}
+	<div class="col-sm-6">
+		
+		<table class="table table-condensed table-hover">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Name</th>
+					<th>Role</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr
+					*ngFor="let hero of heroes"
+					[class.success]="hero === selectedHero"
+					(click)=" hero === selectedHero ? onSelect(null) : onSelect(hero)"
+				>
+					<td>{{ hero.id }}</td>
+					<td>{{ hero.name }}</td>
+					<td>{{ hero.role.name }}</td>
+				</tr>
+			</tbody>
+			
+		</table>
+	</div>		
+	<div class="col-sm-6">
+		<div *ngIf="selectedHero">
+			<h2>{{selectedHero.greet() }} </h2>
+			<div>
+				<label>id: </label>{{selectedHero.id}}
+			</div>
+
+			<div>
+				<label>name: </label>
+				<input [(ngModel)]="selectedHero.name" placeholder="name"/>
+			</div>
+			<br>
+			<button (click)="deleteHero(selectedHero); onSelect(null)">Delete a this hero</button>
+			<br>
+			<pre>{{selectedHero | json}}</pre>
 		</div>
 
-		<div>
-			<label>name: </label>
-			<input [(ngModel)]="selectedHero.name" placeholder="name"/>
-		</div>
-		<br>
-		<button (click)="deleteHero(selectedHero); onSelect(null)">Delete a this hero</button>
-		<br>
-		<pre>{{selectedHero | json}}</pre>
+		<form
+			*ngIf="selectedHero === null"
+			name="newHeroForm"
+			(ngSubmit)="createHero(newHero)"
+			#myForm="ngForm"
+		>
+			<h2>Create a new hero</h2>
+			<div>
+				<label>id: </label>{{ findAvailableId() }}
+			</div>
+			<div class="form-group">
+				<label class="control-label">name: </label>
+				<input
+					class="form-control"
+					[(ngModel)]="newHero.name"
+					placeholder="name"
+					name="newHeroName"
+					#newHeroName="ngModel"
+					required
+				/>
+			</div>
+			<br>
+			<button type="submit" [disabled]="myForm.invalid" class="btn btn-primary">Create a new hero</button>
+		</form>
 	</div>
-
-	<form
-		*ngIf="selectedHero === null"
-		name="newHeroForm"
-		(ngSubmit)="createHero(newHero)"
-		#myForm="ngForm"
-	>
-		<h2>Create a new hero</h2>
-		<div>
-			<label>id: </label>{{ findAvailableId() }}
-		</div>
-		<div class="form-group">
-			<label class="control-label">name: </label>
-			<input
-				class="form-control"
-				[(ngModel)]="newHero.name"
-				placeholder="name"
-				name="newHeroName"
-				#newHeroName="ngModel"
-				required
-			/>
-		</div>
-		<br>
-		<button type="submit" [disabled]="myForm.invalid" class="btn btn-primary">Create a new hero</button>
-	</form>
 </div>
