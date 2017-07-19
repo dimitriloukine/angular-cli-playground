@@ -1,7 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { HeroesModule } from './heroes/heroes.module';
 
 
 describe('AppComponent', () => {
@@ -10,7 +10,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
-      imports: [ FormsModule ],
+      imports: [ HeroesModule ],
     }).compileComponents();
   }));
 

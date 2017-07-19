@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 import { HeroesModule } from './heroes/heroes.module';
+// import { HeroesComponent } from './heroes/heroes.component';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { HeroesModule } from './heroes/heroes.module';
   ],
   imports: [
     BrowserModule,
-    HeroesModule
+    HeroesModule,
+    // HeroesComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
