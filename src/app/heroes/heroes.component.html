@@ -45,21 +45,24 @@
 		*ngIf="selectedHero === null"
 		name="newHeroForm"
 		(ngSubmit)="createHero(newHero)"
+		#myForm="ngForm"
 	>
 		<h2>Create a new hero</h2>
 		<div>
 			<label>id: </label>{{ findAvailableId() }}
 		</div>
-		<div>
-			<label>name: </label>
+		<div class="form-group">
+			<label class="control-label">name: </label>
 			<input
+				class="form-control"
 				[(ngModel)]="newHero.name"
 				placeholder="name"
 				name="newHeroName"
+				#newHeroName="ngModel"
 				required
 			/>
 		</div>
 		<br>
-		<button type="submit" >Create a new hero</button>
+		<button type="submit" [disabled]="myForm.invalid" class="btn btn-primary">Create a new hero</button>
 	</form>
 </div>

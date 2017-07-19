@@ -1,0 +1,32 @@
+//
+// Cards
+// --------------------------------------------------
+
+
+// Base class
+.card {
+  min-height: 20px;
+  margin-bottom: 20px;
+  background-color: $card-bg;
+  // border: 1px solid $card-border;
+  // overflow:hidden;
+  border-radius: $border-radius-base;
+  @include box-shadow(0 0 4px rgba(0,0,0,.3));
+  .card-header{
+    padding: 10px 20px;
+  }
+  .card-content{
+    padding: 10px 20px;
+  @include clearfix;
+  }
+}
+
+// Sizes
+.card-lg {
+  padding: 24px;
+  border-radius: $border-radius-large;
+}
+.card-sm {
+  padding: 9px;
+  border-radius: $border-radius-small;
+}

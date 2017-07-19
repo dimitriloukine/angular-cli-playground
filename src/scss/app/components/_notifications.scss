@@ -1,0 +1,78 @@
+.notifcation-wrapper{
+	width: 260px;
+	height:auto;
+	position:fixed;
+	bottom:0;
+	right:0;
+	z-index: 900;
+}
+
+.notification{
+	margin: 2px 5px 2px 0;
+	max-height:auto;
+	background-color: $gray-darker;
+	color:white;
+	@include box-shadow();
+	&.notification-success{
+		color: $brand-success!important;
+	}
+
+	&.notification-warning{
+		color: $brand-warning!important;
+	}
+
+	&.notification-error{
+		color: $brand-danger!important;
+	}
+
+	.notification-header{
+		padding:5px;
+		h3{
+			color:white;
+			font-size: 14px;
+			font-weight: 100;
+			margin-top: 4px;
+		}
+	}
+	.notification-content{
+		color:white;
+		padding:5px;
+	}
+	.notification-actions{
+
+	}
+	.progress{
+		height:3px;
+		margin-bottom: 0;
+		background-color: $brand-secondary;
+	}
+}
+
+
+.notification.ng-enter,
+.notification.ng-leave{
+	transition: 250ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+}
+.notification.ng-enter {
+	opacity:0;
+	transform: scale(0);
+	max-height:0;
+}
+
+/* The finishing CSS styles for the enter animation */
+.notification.ng-enter.ng-enter-active {
+	opacity:1;
+	transform: scale(1);
+	max-height:300px;
+}
+
+.notification.ng-leave {
+	opacity:1;
+	transform: scale(1);
+	max-height:300px;
+}
+.notification.ng-leave.ng-leave-active {
+	opacity:0;
+	transform: scale(0);
+	max-height:0;
+}

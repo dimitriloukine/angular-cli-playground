@@ -68,10 +68,10 @@ export class HeroesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
 
+  }
   heroes = HEROES;
-  selectedHero: Hero;
+  selectedHero: Hero = null;
   newHero: Hero = new Hero({id: null, name: null});
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
